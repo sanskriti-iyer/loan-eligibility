@@ -1,37 +1,41 @@
-# loan-eligibility
-This project explores the application of image classification using a Convolutional Neural Network (CNN) to categorize images of flowers into five distinct classes: daisy, dandelion, rose, sunflower, and tulip. The model is built and trained using TensorFlow and Keras within a Google Colab environment, leveraging a custom dataset stored on Google Drive. The workflow spans dataset preparation, model architecture design, training, and evaluation.
+Overview
+This project builds a predictive machine learning model to determine a loan applicant's eligibility based on demographic and financial information. It includes exploratory data analysis (EDA), feature engineering, model training, evaluation, and comparison across classifiers. The goal is to support financial institutions in efficiently identifying creditworthy applicants.
 
 __Core Objectives__
-- Train a CNN model to classify flower images into five categories
-- Leverage image augmentation and preprocessing to enhance model generalization
-- Evaluate model performance using training accuracy and loss metrics
-- Demonstrate prediction capability on unseen flower images
+- Predict whether an applicant is eligible for a loan based on their profile
+- Perform comprehensive EDA to identify trends and relationships
+- Compare multiple classification algorithms and evaluate their performance
+- Handle missing values and transform skewed features for optimal model behavior
 
-# Workflow Summary
-__Data Loading__
-- Mounted Google Drive in Colab to access image data
-- Loaded image dataset structured in subdirectories by flower type
-- Used Keras ImageDataGenerator to flow images from directories with augmentation
-- Preprocessing and Augmentation
-- Applied image rescaling, rotation, zoom, shear, and flipping for training set
-- Normalized pixel values across both training and test images
+__Workflow Summary__
 
-__Model Architecture__
-- Built a sequential CNN with convolution, max pooling, dropout, and dense layers
-- Used ReLU activations and Softmax for multi-class output
-- Trained the model over 30 epochs
+Data Loading
+- Imported loan_train.csv and loaded it into a Pandas DataFrame
+- Explored overall dataset structure, missing values, and variable types
 
-__Evaluation__
-- Achieved approximately 83.5% training accuracy
-- Reviewed training and validation accuracy/loss plots to assess overfitting
-- Identified potential overfitting due to increasing validation loss
+Data Preprocessing
+- Handled missing values using imputation techniques (e.g., mode/median filling)
+- Applied label encoding and one-hot encoding to categorical variables
+- Performed feature engineering (e.g., total income, income bins)
+- Visualized variable distributions, correlations, and outlier behavior using Seaborn and Matplotlib
 
-__Prediction__
-- Used trained model to predict classes of new flower images provided by the user
+Model Training
+- Split data into training and test sets using train_test_split
+
+Trained three classifiers:
+- Logistic Regression
+- Decision Tree Classifier
+- Random Forest Classifier
+
+Evaluation
+- Compared models based on accuracy scores
+- Achieved highest accuracy (~79%) with the Random Forest Classifier
+- Discussed limitations and potential overfitting concerns
 
 # Technology Used
-- TensorFlow/Keras – for building and training the CNN
-- Python – for scripting and data processing
-- NumPy – for array operations
-- Google Colab – for execution environment
-- Matplotlib – for plotting accuracy/loss
+- Python – for scripting and core logic
+- Pandas – for data manipulation
+- NumPy – for numerical computations
+- Seaborn & Matplotlib – for data visualization and plots
+- Scikit-learn – for model implementation and evaluation
+- Google Colab – for development and execution environment
